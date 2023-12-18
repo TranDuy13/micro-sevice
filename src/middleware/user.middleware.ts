@@ -4,10 +4,12 @@ import { AuthMiddleware } from './auth.middleware';
 import { AppController } from 'src/app.controller';
 import { AppService } from 'src/app.service';
 import { ResponseHandlerService } from 'src/services/handleReponse-service';
+import { UsersController } from 'src/controllers/users.controller';
+import { RegexServices } from 'src/func/regex';
 
 @Module({
-  controllers: [AppController],
-  providers: [AppService, ResponseHandlerService],
+  controllers: [AppController, UsersController],
+  providers: [AppService, ResponseHandlerService, RegexServices],
   imports: [],
 })
 export class UsersModuleMiddleWare {
@@ -15,7 +17,7 @@ export class UsersModuleMiddleWare {
     consumer
       .apply(AuthMiddleware)
       .forRoutes(
-        { path: '/', method: RequestMethod.GET },
+        { path: 'user/:id', method: RequestMethod.GET },
         { path: 'products/getMyProduct', method: RequestMethod.GET },
       );
   }
