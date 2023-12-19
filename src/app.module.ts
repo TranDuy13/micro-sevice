@@ -9,9 +9,10 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { CronService } from './cron/cron.service';
 import { RsaService } from './services/RSA.service';
 import { MYSQLService } from './services/MYSQL.serivce';
+import { MongooseDbModule } from './mongoose-dbmodule/mongoose-dbmodule.module';
 
 @Module({
-  imports: [UsersModuleMiddleWare, ScheduleModule.forRoot()],
+  imports: [UsersModuleMiddleWare, ScheduleModule.forRoot(), MongooseDbModule],
   controllers: [AppController, UsersController],
   providers: [
     AppService,
