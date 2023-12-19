@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ResponseHandlerService } from './services/handleReponse-service';
+import { ResponseHandlerService } from './services/handleReponse.service';
 import { RsaService } from './services/RSA.service';
 
 describe('AppController', () => {
